@@ -1,0 +1,8 @@
+<%if current_user%>
+    <p><%= button_to "Log out", destroy_user_session_path,method: :delete%></p>    
+    <%= button_to "Vew Products",products_path,method: :get %>  
+<%else%>
+    <p><%= link_to "Log in", new_user_session_path%></p>
+    <p><%= link_to "sign up", new_user_registration_path%></p>
+<%end%>
+

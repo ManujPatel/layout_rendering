@@ -1,0 +1,18 @@
+<h1>Orders#new</h1>
+<% if @order.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+  
+        <ul>
+          <% @order.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+     
+<% end %>
+<%= form_for [@product, @order] do |f|%>
+    <%= f.label :quantity%>
+    <%= f.number_field :quantity%>
+
+    <%= f.submit%>
+<%end%>
