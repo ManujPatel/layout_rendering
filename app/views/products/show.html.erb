@@ -1,0 +1,9 @@
+<h1>Products#show</h1>
+<h2><%= @product.name%></h2>
+<ul>
+    <h4>Description:</h4>
+    <li><%= @product.description%></li>
+    <h4>Price:</h4>
+    <li><%= @product.price%></li>
+</ul>
+<%= link_to "add order for this product", new_product_order_path(@product)%>

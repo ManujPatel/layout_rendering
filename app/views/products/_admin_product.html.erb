@@ -1,0 +1,20 @@
+<body>
+  <table>
+    <tr>Products Details</tr>
+    <tr>
+    <td>Name</td><td>Description</td><td>Price</td><td>Show</td><td>Edit</td><td>Delete</td>
+    </tr>
+    <% @products.each do |s| %>
+      <tr>
+        <td><%=s.name%></td>
+        <td><%=s.description%></td>
+        <td><%=s.price %></td>
+        <td><%= button_to 'Show', product_path(s), method: :get%></td>
+        <td><%= button_to 'Edit', edit_product_path(s), method: :get%></td>
+        <td><%= button_to 'Remove', product_path(s), method: :delete%></td>  
+      </tr>
+    <% end %>
+  </table>
+  <br>
+  <%= button_to "add new product", new_product_path, method: :get%>
+</body>

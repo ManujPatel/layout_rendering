@@ -1,0 +1,20 @@
+<h1>Products#index</h1>
+<% if current_user && current_user.admin%>
+    <%= render 'products/admin_product'%>
+<%else%>
+    <%= render 'products/merchant_product'%>
+<%end%>
+<h3>Your Orders:</h3>
+<table border="2px">
+    <tr>
+        <td>Product Name</td><td>Quantity</td><td>Delete Order</td>
+    </tr>
+    
+    <% current_user.orders.each do |ord|%>
+        <tr>
+            <td><%= ord.product.name %></td>
+            <td><%= ord.quantity %></td>
+            <td><%= button_to "Delete",product_order_path(@products,ord),method: :delete %></td>
+        </tr>
+    <%end%>  
+</table>
